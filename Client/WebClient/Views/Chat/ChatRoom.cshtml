@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "ChatRoom";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ChatRoom</h2>
+
+<div class="chatroom">
+    <div id="log" class="log">
+
+    </div>
+
+    <input id="message" type="text" /><input id="send_button" type="button" value="Send" />
+    <script>
+        var username = "@Model";
+    </script>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/scripts/chatroom.js")
+}

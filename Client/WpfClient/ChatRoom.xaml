@@ -1,0 +1,12 @@
+﻿<Window x:Class="Myers.NovCodeCamp.Client.Wpf.ChatRoom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ChatRoom" Height="362" Width="713">
+    <Grid>
+        <RichTextBox x:Name="rtbChatLog" HorizontalAlignment="Left" Height="259" Margin="10,10,0,0" VerticalAlignment="Top" Width="685" IsReadOnly="True" VerticalScrollBarVisibility="Visible">
+        </RichTextBox>
+        <TextBox x:Name="txtUserChatMessage" HorizontalAlignment="Left" Height="47" Margin="10,274,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="594"/>
+        <Button x:Name="btnSendChat" Content="Send" HorizontalAlignment="Left" Margin="609,274,0,0" VerticalAlignment="Top" Width="86" Height="47" Click="btnSendChat_Click"/>
+
+    </Grid>
+</Window>
