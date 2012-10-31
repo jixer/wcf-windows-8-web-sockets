@@ -1,0 +1,1 @@
+C:\Users\myers_000\Desktop\wcf-windows-8-web-sockets\Client\Windows8Client\Windows8Client.csproj;neutral
