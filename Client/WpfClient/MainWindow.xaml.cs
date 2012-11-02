@@ -27,6 +27,7 @@ namespace Myers.NovCodeCamp.Client.Wpf
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            // navigate to the Chat Room Window
             var wndw = new ChatRoom(txtUsername.Text);
             wndw.Show();
             this.Close();

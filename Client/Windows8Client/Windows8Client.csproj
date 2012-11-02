@@ -110,8 +110,6 @@
     <Compile Include="ChatRoom.xaml.cs">
       <DependentUpon>ChatRoom.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ChatRoomPayload.cs" />
-    <Compile Include="ChatServiceCallback.cs" />
     <Compile Include="Common\BindableBase.cs" />
     <Compile Include="Common\BooleanNegationConverter.cs" />
     <Compile Include="Common\BooleanToVisibilityConverter.cs" />

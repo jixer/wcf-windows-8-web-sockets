@@ -80,10 +80,6 @@
       <Project>{15b3e0d2-6217-493a-a690-158c497f5318}</Project>
       <Name>Chat</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Extensibility\Extensibility.csproj">
-      <Project>{42466216-0aff-4c72-98d1-f2c91683f147}</Project>
-      <Name>Extensibility</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

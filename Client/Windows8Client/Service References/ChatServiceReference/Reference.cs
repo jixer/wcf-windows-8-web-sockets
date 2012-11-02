@@ -151,7 +151,7 @@ namespace Myers.NovCodeCamp.Client.Windows8.ChatServiceReference {
         
         private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration) {
             if ((endpointConfiguration == EndpointConfiguration.NetHttpBinding_IChatService)) {
-                return new System.ServiceModel.EndpointAddress("ws://localhost:1397/ChatService.svc");
+                return new System.ServiceModel.EndpointAddress("ws://localhost:1397/ChatService.svc/main");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }

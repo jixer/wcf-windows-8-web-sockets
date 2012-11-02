@@ -21,13 +21,9 @@ namespace Extensibility
             return null;
         }
 
-        public void BeforeSendReply(ref Message reply, object correlationState)
-        {
-        }
+        public void BeforeSendReply(ref Message reply, object correlationState) { }
 
-        public void AfterReceiveReply(ref Message reply, object correlationState)
-        {
-        }
+        public void AfterReceiveReply(ref Message reply, object correlationState) { }
 
         // duplex service callback send
         public object BeforeSendRequest(ref Message request, IClientChannel channel)

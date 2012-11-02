@@ -1,19 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Myers.NovCodeCamp.Client.Windows8.ChatServiceReference;
-
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Myers.NovCodeCamp.Client.Windows8
 {
@@ -38,7 +25,8 @@ namespace Myers.NovCodeCamp.Client.Windows8
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ChatRoom), new ChatRoomPayload(txtUsername.Text, new ChatServiceClient()));
+            // Navigate to the chatroom frame
+            this.Frame.Navigate(typeof(ChatRoom), txtUsername.Text);
         }
     }
 }
