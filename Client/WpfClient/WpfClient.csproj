@@ -56,11 +56,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CallbackHandler.cs" />
-    <Compile Include="Service References\ChatServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Page Include="ChatRoom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -104,16 +99,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\ChatServiceReference\ChatService.wsdl" />
-    <None Include="Service References\ChatServiceReference\ChatService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ChatServiceReference\ChatService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ChatServiceReference\ChatService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -122,22 +107,14 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ChatServiceReference\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ChatServiceReference\ChatService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ChatServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ChatServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ChatServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <ProjectReference Include="..\..\Contracts\Contracts.csproj">
+      <Project>{f681af62-1ff7-488d-93fc-77795f134a5f}</Project>
+      <Name>Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Service\Chat\Chat.csproj">
+      <Project>{15b3e0d2-6217-493a-a690-158c497f5318}</Project>
+      <Name>Chat</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,9 +1,0 @@
-C:\Users\myers_000\Desktop\wcf-windows-8-web-sockets\Service\Chat\bin\Debug\Myers.NovCodeCamp.Service.Chat.dll
-C:\Users\myers_000\Desktop\wcf-windows-8-web-sockets\Service\Chat\bin\Debug\Myers.NovCodeCamp.Service.Chat.pdb
-C:\Users\myers_000\Desktop\wcf-windows-8-web-sockets\Service\Chat\bin\Debug\Myers.NovCodeCamp.Contracts.dll
-C:\Users\myers_000\Desktop\wcf-windows-8-web-sockets\Service\Chat\bin\Debug\RabbitMQ.Client.dll
-C:\Users\myers_000\Desktop\wcf-windows-8-web-sockets\Service\Chat\bin\Debug\Myers.NovCodeCamp.Contracts.pdb
-C:\Users\myers_000\Desktop\wcf-windows-8-web-sockets\Service\Chat\bin\Debug\RabbitMQ.Client.xml
-C:\Users\myers_000\Desktop\wcf-windows-8-web-sockets\Service\Chat\obj\Debug\Chat.csprojResolveAssemblyReference.cache
-C:\Users\myers_000\Desktop\wcf-windows-8-web-sockets\Service\Chat\obj\Debug\Myers.NovCodeCamp.Service.Chat.dll
-C:\Users\myers_000\Desktop\wcf-windows-8-web-sockets\Service\Chat\obj\Debug\Myers.NovCodeCamp.Service.Chat.pdb

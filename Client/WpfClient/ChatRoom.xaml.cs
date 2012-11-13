@@ -1,6 +1,7 @@
 ﻿using System.ServiceModel;
 using System.Windows;
-using Myers.NovCodeCamp.Client.Wpf.ChatServiceReference;
+using Myers.NovCodeCamp.Service;
+using Myers.NovCodeCamp.Contract;
 
 namespace Myers.NovCodeCamp.Client.Wpf
 {
@@ -10,7 +11,7 @@ namespace Myers.NovCodeCamp.Client.Wpf
     public partial class ChatRoom : Window
     {
         // global chat service reference
-        private ChatServiceClient _svcClient;
+        private ISocketChatService _svcClient;
 
         /// <summary>
         /// Public access to the logged in user
@@ -24,11 +25,14 @@ namespace Myers.NovCodeCamp.Client.Wpf
             Username = username;
 
             // create the callback handler and the service client
-            InstanceContext chatServiceCallbackInstance = new InstanceContext(new CallbackHandler(this));
-            _svcClient = new ChatServiceClient(chatServiceCallbackInstance);
+            var callbackContext = new InstanceContext(new CallbackHandler(this));
+            var factory = new DuplexChannelFactory<ISocketChatService>(callbackContext, "SocketChatService");
+            _svcClient = factory.CreateChannel();
 
-            // login to the chat service
-            _svcClient.Login(Username);
+            // Create the custom logon message and send in order to logon
+            var loginMessageBody = new SocketServiceMessage() { Action = SocketServiceAction.Login, Username = username };
+            var loginMessage = JsonMessageSerializer.Serialize(loginMessageBody);
+            _svcClient.Receive(loginMessage);
         }
 
         /// <summary>
@@ -38,11 +42,13 @@ namespace Myers.NovCodeCamp.Client.Wpf
         /// <param name="e"></param>
         private void btnSendChat_Click(object sender, RoutedEventArgs e)
         {
-            // create the chat message
-            var msg = new ChatMessage() { From = Username, MessageText = txtUserChatMessage.Text};
+            //// create the chat message
+            var chatMessageBody = new ChatMessage() { From = Username, MessageText = txtUserChatMessage.Text };
+            var messageBody = new SocketServiceMessage() { Action = SocketServiceAction.ChatMessage, Message = chatMessageBody };
+            var msg = JsonMessageSerializer.Serialize(messageBody);
 
-            //send the message to the service topic
-            _svcClient.SendMessage(msg);
+            ////send the message to the service topic
+            _svcClient.Receive(msg);
         }
     }
 }

@@ -1,11 +1,13 @@
-﻿using Myers.NovCodeCamp.Client.Wpf.ChatServiceReference;
+﻿using Myers.NovCodeCamp.Contract;
+using Myers.NovCodeCamp.Service;
+using System.ServiceModel.Channels;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
 
 namespace Myers.NovCodeCamp.Client.Wpf
 {
-    public class CallbackHandler : IChatServiceCallback
+    public class CallbackHandler : ISocketChatServiceCallback
     {
         private ChatRoom _chatRoomWindow;
 
@@ -38,6 +40,12 @@ namespace Myers.NovCodeCamp.Client.Wpf
 
             // add the paragraph to the rich text box
             _chatRoomWindow.rtbChatLog.Document.Blocks.Add(p);
+        }
+
+        public void Send(Message message)
+        {
+            var msg = JsonMessageSerializer.Deserialize<ChatMessage>(message);
+            RecieveMessage(msg);
         }
     }
 }

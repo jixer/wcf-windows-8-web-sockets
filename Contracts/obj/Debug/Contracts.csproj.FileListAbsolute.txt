@@ -1,4 +1,0 @@
-C:\Users\myers_000\Desktop\wcf-windows-8-web-sockets\Contracts\bin\Debug\Myers.NovCodeCamp.Contracts.dll
-C:\Users\myers_000\Desktop\wcf-windows-8-web-sockets\Contracts\bin\Debug\Myers.NovCodeCamp.Contracts.pdb
-C:\Users\myers_000\Desktop\wcf-windows-8-web-sockets\Contracts\obj\Debug\Myers.NovCodeCamp.Contracts.dll
-C:\Users\myers_000\Desktop\wcf-windows-8-web-sockets\Contracts\obj\Debug\Myers.NovCodeCamp.Contracts.pdb

@@ -2,7 +2,7 @@
 
 $(document).ready(function () {
     // create websocket connection
-    var mysocket = new WebSocket("ws://localhost:1397/SocketChatService.svc");
+    var mysocket = new WebSocket("ws://vdev-pc/svc/SocketChatService.svc");
 
     mysocket.onopen = function (event) {
         // once the connection is open, login to the service
