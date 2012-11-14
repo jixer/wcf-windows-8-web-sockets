@@ -18,6 +18,15 @@ foreach($FolderName in $objfolders)
                 
 }
 
+$packagefolders = Get-ChildItem -Force -Recurse -Filter "AppPackages";
+
+#5. Scan for more folders with this name.  When none more found, stop.
+foreach($FolderName in $packagefolders)
+{
+    Remove-Item -Path $FolderName.FullName -Recurse -Force;
+                
+}
+
 $suofiles = Get-ChildItem -Hidden -Filter "*.suo";
 
 foreach($FileName in $suofiles)
