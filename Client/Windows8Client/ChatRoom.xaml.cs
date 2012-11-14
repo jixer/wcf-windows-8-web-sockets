@@ -7,7 +7,11 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Myers.NovCodeCamp.Client.Windows8.ChatServiceReference;
+using Windows.Networking.Sockets;
+using Windows.Storage.Streams;
+using Windows.Web;
+using Myers.NovCodeCamp.Contract;
+using Newtonsoft.Json;
 
 namespace Myers.NovCodeCamp.Client.Windows8
 {
@@ -16,43 +20,56 @@ namespace Myers.NovCodeCamp.Client.Windows8
     /// </summary>
     public sealed partial class ChatRoom : Myers.NovCodeCamp.Client.Windows8.Common.LayoutAwarePage
     {
-        private ChatServiceClient _svcClient;
         private string _username;
+
+        private MessageWebSocket messageWebSocket;
+        private DataWriter messageWriter;
+
+        private Queue<ChatMessage> _queue = new Queue<ChatMessage>();
+        private object _queueSync = new object();
 
         public ChatRoom()
         {
             this.InitializeComponent();
         }
 
-        /// <summary>
-        /// Chat client callback
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ReceiveMessage(object sender, RecieveMessageReceivedEventArgs e)
+        private ChatMessage DequeueChatMessage()
         {
-            // create the paragraph
-            Paragraph p = new Paragraph();
-            Run rnMyText = new Run();
-            p.FontWeight = FontWeights.Bold;
-
-            // if the message is from the currently logged in user, then set the color to gray
-            if (e.msg.From == _username)
+            lock (_queueSync)
             {
-                p.Foreground = new SolidColorBrush(Colors.Gray);
-                rnMyText.Text = string.Format("{0} (me): {1}", e.msg.From, e.msg.MessageText);
+                if (_queue.Count > 0) return _queue.Dequeue();
+                else return null;
             }
-            else
+        }
+
+        private void DisplayMessage()
+        {
+            ChatMessage msg = null;
+            while ((msg = DequeueChatMessage()) != null)
             {
-                p.Foreground = new SolidColorBrush(Colors.Green);
-                rnMyText.Text = string.Format("{0}: {1}", e.msg.From, e.msg.MessageText);
+                // create the paragraph
+                Paragraph p = new Paragraph();
+                Run rnMyText = new Run();
+                p.FontWeight = FontWeights.Bold;
+
+                // if the message is from the currently logged in user, then set the color to gray
+                if (msg.From == _username)
+                {
+                    p.Foreground = new SolidColorBrush(Colors.Gray);
+                    rnMyText.Text = string.Format("{0} (me): {1}", msg.From, msg.MessageText);
+                }
+                else
+                {
+                    p.Foreground = new SolidColorBrush(Colors.Green);
+                    rnMyText.Text = string.Format("{0}: {1}", msg.From, msg.MessageText);
+                }
+
+                // add the text to the paragraph tag
+                p.Inlines.Add(rnMyText);
+
+                // add the paragraph to the rich text box
+                rtbChatLog.Blocks.Add(p);
             }
-
-            // add the text to the paragraph tag
-            p.Inlines.Add(rnMyText);
-
-            // add the paragraph to the rich text box
-            rtbChatLog.Blocks.Add(p);
         }
 
         /// <summary>
@@ -66,19 +83,76 @@ namespace Myers.NovCodeCamp.Client.Windows8
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState) { }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
             // retrieve the username from the payload
             _username = (string)e.Parameter;
 
-            // setup the service client
-            _svcClient = new ChatServiceClient();
-            _svcClient.RecieveMessageReceived += ReceiveMessage;
+            try
+            {
+                // Make a local copy to avoid races with Closed events.
+                MessageWebSocket webSocket = messageWebSocket;
 
-            // login to the service
-            _svcClient.LoginAsync(_username).Wait();
+                // Have we connected yet?
+                if (webSocket == null)
+                {
+                    Uri server = new Uri("ws://vdev-pc/svc/SocketChatService.svc");
+
+                    webSocket = new MessageWebSocket();
+                    // MessageWebSocket supports both utf8 and binary messages.
+                    // When utf8 is specified as the messageType, then the developer
+                    // promises to only send utf8-encoded data.
+                    webSocket.Control.MessageType = SocketMessageType.Utf8;
+                    // Set up callbacks
+                    webSocket.MessageReceived += MessageReceived;
+
+                    await webSocket.ConnectAsync(server);
+                    messageWebSocket = webSocket; // Only store it after successfully connecting.
+                    messageWriter = new DataWriter(webSocket.OutputStream);
+                }
+
+                // create the main message and serialize to string
+                SocketServiceMessage msgBody = new SocketServiceMessage() { Action = SocketServiceAction.Login, Username = _username };
+                string msgBodyString = JsonConvert.SerializeObject(msgBody);
+
+                // Buffer any data we want to send.
+                messageWriter.WriteString(msgBodyString);
+
+                // Send the data as one complete message.
+                await messageWriter.StoreAsync();
+            }
+            catch (Exception ex) // For debugging
+            {
+                WebErrorStatus status = WebSocketError.GetStatus(ex.GetBaseException().HResult);
+            }
+        }
+
+        private void MessageReceived(MessageWebSocket sender, MessageWebSocketMessageReceivedEventArgs args)
+        {
+            ChatMessage msg = null;
+            try
+            {
+                using (DataReader reader = args.GetDataReader())
+                {
+                    // get message and deserialize to ChatMessage
+                    reader.UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.Utf8;
+                    string read = reader.ReadString(reader.UnconsumedBufferLength);
+                    msg = JsonConvert.DeserializeObject<ChatMessage>(read);
+                }
+            }
+            catch (Exception ex) // For debugging
+            {
+                WebErrorStatus status = WebSocketError.GetStatus(ex.GetBaseException().HResult);
+                // Add your specific error-handling code here.
+            }
+
+            // Add item to the local queue
+            _queue.Enqueue(msg);
+
+            // Dispatch the queue handler
+            this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, DisplayMessage);
         }
 
         /// <summary>
@@ -94,11 +168,22 @@ namespace Myers.NovCodeCamp.Client.Windows8
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnSendChatMessage_Click(object sender, RoutedEventArgs e)
+        private async void btnSendChatMessage_Click(object sender, RoutedEventArgs e)
         {
             // create the chat message and send it across the wire
-            var msg = new ChatMessage() { From = _username, MessageText = txtUserMessage.Text };
-            _svcClient.SendMessageAsync(msg);
+            var chatMessage = new ChatMessage() { From = _username, MessageText = txtUserMessage.Text };
+
+            // create the wrapper message and serialize it to string
+            var wrapperMsg = new SocketServiceMessage() { Action = SocketServiceAction.ChatMessage, Message = chatMessage };
+            string msg = JsonConvert.SerializeObject(wrapperMsg);
+
+            // buffer the message
+            messageWriter.WriteString(msg);
+
+            // send the message
+            await messageWriter.StoreAsync();
+
+            //_svcClient.SendMessageAsync(msg);
 
             // clear out the message text box
             txtUserMessage.Text = "";
