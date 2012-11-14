@@ -48,8 +48,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChatService.cs" />
-    <Compile Include="IChatService.cs" />
     <Compile Include="ISocketChatService.cs" />
     <Compile Include="JsonMessageSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

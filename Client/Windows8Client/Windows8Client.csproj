@@ -121,11 +121,6 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ChatServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="SocketServiceAction.cs" />
     <Compile Include="SocketServiceMessage.cs" />
   </ItemGroup>
@@ -135,16 +130,6 @@
     </AppxManifest>
     <None Include="packages.config" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
-    <None Include="Service References\ChatServiceReference\ChatService.wsdl" />
-    <None Include="Service References\ChatServiceReference\ChatService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ChatServiceReference\ChatService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ChatServiceReference\ChatService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Windows8Client_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -153,13 +138,6 @@
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Common\ReadMe.txt" />
-    <None Include="Service References\ChatServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\ChatServiceReference\configuration.svcinfo" />
-    <None Include="Service References\ChatServiceReference\configuration91.svcinfo" />
-    <None Include="Service References\ChatServiceReference\ChatService.disco" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -178,9 +156,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ChatServiceReference\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
