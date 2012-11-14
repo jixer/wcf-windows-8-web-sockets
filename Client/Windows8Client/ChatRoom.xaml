@@ -36,7 +36,7 @@
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="Chat Room" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
-        <TextBox x:Name="txtUserMessage" HorizontalAlignment="Left" Margin="10,546,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="72" Width="1128" FontSize="16"/>
+        <TextBox x:Name="txtUserMessage" HorizontalAlignment="Left" Margin="10,546,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="72" Width="1128" FontSize="16"/>
         <Button x:Name="btnSendChatMessage" Content="Send" HorizontalAlignment="Left" Margin="1143,546,0,0" Grid.Row="1" VerticalAlignment="Top" Height="72" Width="213" FontSize="20" Click="btnSendChatMessage_Click"/>
         <RichTextBlock x:Name="rtbChatLog" HorizontalAlignment="Left" Height="531" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1346">
         </RichTextBlock>
