@@ -2,7 +2,7 @@
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-namespace Myers.NovCodeCamp.Client.Windows8
+namespace Myers.WebSockDemo.Client.Windows8
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.

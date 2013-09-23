@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Myers.NovCodeCamp.Client.Wpf")]
+[assembly: AssemblyTitle("Myers.WebSockDemo.Client.Wpf")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Myers.NovCodeCamp.Client.Wpf")]
+[assembly: AssemblyProduct("Myers.WebSockDemo.Client.Wpf")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

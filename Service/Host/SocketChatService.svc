@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Service="Myers.NovCodeCamp.Service.SocketChatService" %>
+﻿<%@ ServiceHost Language="C#" Service="Myers.WebSockDemo.Service.SocketChatService" %>

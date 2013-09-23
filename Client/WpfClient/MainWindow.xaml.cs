@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Myers.NovCodeCamp.Client.Wpf
+namespace Myers.WebSockDemo.Client.Wpf
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

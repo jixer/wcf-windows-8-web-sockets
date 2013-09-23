@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace Myers.NovCodeCamp.Client.Web
+namespace Myers.WebSockDemo.Client.Web
 {
     public static class WebApiConfig
     {

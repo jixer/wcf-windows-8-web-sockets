@@ -1,4 +1,4 @@
-﻿<Window x:Class="Myers.NovCodeCamp.Client.Wpf.MainWindow"
+﻿<Window x:Class="Myers.WebSockDemo.Client.Wpf.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="183" Width="328">

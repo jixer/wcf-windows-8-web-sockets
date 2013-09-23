@@ -8,7 +8,7 @@ using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Myers.NovCodeCamp.Service
+namespace Myers.WebSockDemo.Service
 {
     public class JsonMessageSerializer
     {

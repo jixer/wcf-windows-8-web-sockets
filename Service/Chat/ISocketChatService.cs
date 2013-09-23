@@ -1,7 +1,7 @@
 ﻿using System.ServiceModel;
 using System.ServiceModel.Channels;
 
-namespace Myers.NovCodeCamp.Service
+namespace Myers.WebSockDemo.Service
 {
     [ServiceContract]
     public interface ISocketChatServiceCallback

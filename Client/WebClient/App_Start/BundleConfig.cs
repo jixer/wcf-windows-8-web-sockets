@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Myers.NovCodeCamp.Client.Web
+namespace Myers.WebSockDemo.Client.Web
 {
     public class BundleConfig
     {

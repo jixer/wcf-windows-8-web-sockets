@@ -1,4 +1,4 @@
-﻿using Myers.NovCodeCamp.Contract;
+﻿using Myers.WebSockDemo.Contract;
 using RabbitMQ.Client;
 using System;
 using System.IO;
@@ -7,7 +7,7 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Threading;
 
-namespace Myers.NovCodeCamp.Service
+namespace Myers.WebSockDemo.Service
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
     public class SocketChatService : ISocketChatService

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Myers.NovCodeCamp.Contract
+namespace Myers.WebSockDemo.Contract
 {
     [DataContract]
     [Serializable]

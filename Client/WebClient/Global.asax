@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Myers.NovCodeCamp.Client.Web.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Myers.WebSockDemo.Client.Web.MvcApplication" Language="C#" %>

@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace Myers.NovCodeCamp.Client.Web
+namespace Myers.WebSockDemo.Client.Web
 {
     public class FilterConfig
     {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Myers.NovCodeCamp.Client.Web.Models;
+using Myers.WebSockDemo.Client.Web.Models;
 
-namespace Myers.NovCodeCamp.Client.Web.Controllers
+namespace Myers.WebSockDemo.Client.Web.Controllers
 {
     public class ChatController : Controller
     {

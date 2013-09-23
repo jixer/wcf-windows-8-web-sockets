@@ -1,4 +1,4 @@
-﻿<Window x:Class="Myers.NovCodeCamp.Client.Wpf.ChatRoom"
+﻿<Window x:Class="Myers.WebSockDemo.Client.Wpf.ChatRoom"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="ChatRoom" Height="362" Width="713">

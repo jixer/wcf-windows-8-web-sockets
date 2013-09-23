@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Myers.NovCodeCamp.Client.Web.Models
+namespace Myers.WebSockDemo.Client.Web.Models
 {
     public class LoginViewModel
     {

@@ -10,15 +10,15 @@ using Windows.UI.Xaml.Navigation;
 using Windows.Networking.Sockets;
 using Windows.Storage.Streams;
 using Windows.Web;
-using Myers.NovCodeCamp.Contract;
+using Myers.WebSockDemo.Contract;
 using Newtonsoft.Json;
 
-namespace Myers.NovCodeCamp.Client.Windows8
+namespace Myers.WebSockDemo.Client.Windows8
 {
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class ChatRoom : Myers.NovCodeCamp.Client.Windows8.Common.LayoutAwarePage
+    public sealed partial class ChatRoom : Myers.WebSockDemo.Client.Windows8.Common.LayoutAwarePage
     {
         private string _username;
 

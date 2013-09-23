@@ -1,7 +1,7 @@
 ﻿using System;
 using Windows.UI.Xaml.Data;
 
-namespace Myers.NovCodeCamp.Client.Windows8.Common
+namespace Myers.WebSockDemo.Client.Windows8.Common
 {
     /// <summary>
     /// Value converter that translates true to false and vice versa.

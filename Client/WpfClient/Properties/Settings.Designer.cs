@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Myers.NovCodeCamp.Client.Wpf.Properties {
+namespace Myers.WebSockDemo.Client.Wpf.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

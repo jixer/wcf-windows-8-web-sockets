@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Myers.NovCodeCamp.Client.Wpf.Properties {
+namespace Myers.WebSockDemo.Client.Wpf.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Myers.NovCodeCamp.Client.Wpf.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Myers.NovCodeCamp.Client.Wpf.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Myers.WebSockDemo.Client.Wpf.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

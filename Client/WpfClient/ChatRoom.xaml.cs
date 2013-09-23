@@ -1,9 +1,9 @@
 ﻿using System.ServiceModel;
 using System.Windows;
-using Myers.NovCodeCamp.Service;
-using Myers.NovCodeCamp.Contract;
+using Myers.WebSockDemo.Service;
+using Myers.WebSockDemo.Contract;
 
-namespace Myers.NovCodeCamp.Client.Wpf
+namespace Myers.WebSockDemo.Client.Wpf
 {
     /// <summary>
     /// Interaction logic for ChatRoom.xaml

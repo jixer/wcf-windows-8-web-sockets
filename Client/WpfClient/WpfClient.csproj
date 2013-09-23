@@ -7,8 +7,8 @@
     <ProjectGuid>{E0766966-5081-487F-9420-5926A03D0092}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Myers.NovCodeCamp.Client.Wpf</RootNamespace>
-    <AssemblyName>Myers.NovCodeCamp.WpfClient</AssemblyName>
+    <RootNamespace>Myers.WebSockDemo.Client.Wpf</RootNamespace>
+    <AssemblyName>Myers.WebSockDemo.WpfClient</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

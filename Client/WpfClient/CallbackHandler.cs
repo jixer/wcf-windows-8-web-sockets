@@ -1,11 +1,11 @@
-﻿using Myers.NovCodeCamp.Contract;
-using Myers.NovCodeCamp.Service;
+﻿using Myers.WebSockDemo.Contract;
+using Myers.WebSockDemo.Service;
 using System.ServiceModel.Channels;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
 
-namespace Myers.NovCodeCamp.Client.Wpf
+namespace Myers.WebSockDemo.Client.Wpf
 {
     public class CallbackHandler : ISocketChatServiceCallback
     {

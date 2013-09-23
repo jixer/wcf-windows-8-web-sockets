@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Myers.NovCodeCamp.Client.Web
+namespace Myers.WebSockDemo.Client.Web
 {
     public class RouteConfig
     {
